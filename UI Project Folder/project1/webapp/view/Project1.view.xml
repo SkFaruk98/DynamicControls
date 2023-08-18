@@ -1,0 +1,359 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="project1.controller.Project1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    
+    <Page id="page" title="{i18n>title}">
+    <!-- <content>
+        <Breadcrumbs separatorStyle="Slash" currentLocationText="Product">
+             <Link href="https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_stop_slide" text="Sign" />
+             <Link href="https://outlook.office.com/mail/inbox/id/AAQkADIwNDllNGQyLWM2YzgtNDYyMS1hY2M1LTY0Mjg1ZjJlZGFkNQAQAOGjeHOE3UiNmIiNeGl1G%2F0%3D?actSwt=true" text="Login" />
+
+        </Breadcrumbs>
+    </content>  -->
+
+        <!-- <VBox>
+       <CheckBox 
+       text="Pecock is a bird" 
+       displayOnly="false" 
+       editable="true"
+       enabled="true"
+       name="bird"
+       valueState="Information"
+    
+       selected="true"
+       partiallySelected="false"
+       activeHandling="true" 
+       wrapping="true">
+       </CheckBox>
+     
+       <CheckBox text="Pecock is a bird" displayOnly="true"/>
+       
+        <CheckBox text="Pecock is a bird" editable="false"/>
+
+       
+        <CheckBox text="Pecock is a bird" enabled="false"/>
+
+        <CheckBox text="Pecock is a bird" valueState="Warning" />
+        </VBox> -->
+<!--         
+       <VBox class="reg">
+       <Label text="Name" class="lab"/>
+       <Input value="{personModel>/person/name}" placeholder="enter the name" width="280px" autocomplete="true" ></Input>
+
+       <Label text="Email" class="lab" />
+       <Input value="{personModel>/person/email}" placeholder="enter the name" width="280px" autocomplete="true"></Input>
+
+       <Label text="PhoneNumber" class="lab" />
+       <Input value="{personModel>/person/phoneNumber}" placeholder="enter the name" width="280px" autocomplete="true"></Input>
+       
+       <Label text="Date Of Birth" class="dob"></Label>
+       <DatePicker calendarWeekNumbering="ISO_8601" value="{personModel>/person/date}" width="280px" ></DatePicker>
+       
+       <Label text="Qualification" class="quali"/>
+       <Select width="280px">
+        <core:Item  text="{personModel>/person/qualification/0}" />
+        <core:Item  text="{personModel>/person/qualification/1}" />
+        <core:Item  text="{personModel>/person/qualification/2}" />
+        <core:Item  text="{personModel>/person/qualification/3}" />
+        <core:Item  text="{personModel>/person/qualification/4}" />
+        <core:Item  text="{personModel>/person/qualification/5}" />
+       </Select>
+       
+       <HBox class="Cbox">
+       <RadioButton  text="Male" selected="{personModel>/person/check}" editable="false"></RadioButton>
+       <RadioButton text="Female" editable="false"></RadioButton>
+       </HBox>
+
+         <CheckBox  text="accept" selected="{personModel>/person/check}" select="clickpof()"></CheckBox>
+       </VBox> -->
+
+   <!-- <MenuButton text="">
+   <menu>
+   <Menu >
+   <MenuItem text=""></MenuItem>
+   </Menu>
+   </menu>
+   
+   </MenuButton> -->
+
+<!-- <SplitApp id="Splitof">
+  <detailPages>
+  <Page id="tableof">
+         <Label text="Id"></Label>
+         <Input id="id" width="200px"></Input>
+
+          <Label text="name"></Label>
+         <Input id="name" width="200px"></Input>
+
+         <Label text="Location"></Label>
+         <Input id="location" width="200px"></Input>
+         
+         <Button text="Add" press="submit"></Button>
+          
+         <Table items="{personModel>/students}" >
+            <columns>
+            <Column>
+            <Text text="id"></Text>
+            </Column>
+            <Column >
+               <Text text="Name"></Text>
+            </Column>
+            <Column ><Text text="Location"></Text></Column>
+            </columns>
+            <ColumnListItem >
+            <cells>
+            <Text text="{personModel>id}"></Text>
+             <Text text="{personModel>name}"></Text>
+              <Text text="{personModel>location}"></Text>
+            </cells>
+            </ColumnListItem>
+         </Table>
+         </Page>
+
+
+         <Page id="listof">
+            <List items="{personModel>/students}">
+         <StandardListItem title="{personModel>id}"  description="{personModel>location}" ></StandardListItem>
+         
+         </List>
+
+         </Page>
+         <Page id="formof">
+         </Page>
+    </detailPages>
+   <masterPages>
+     <Page id="Details"
+     title="Details"
+     showNavButton="true">
+     <List itemPress="onclickselect">
+     <items>
+     <StandardListItem title="Table" type="Active" custom:to="tableof" ></StandardListItem>
+      <StandardListItem title="List" type="Active" custom:to="listof" ></StandardListItem>
+       <StandardListItem title="Form" type="Active" custom:to="formof" ></StandardListItem>
+     </items>
+     </List>
+
+     </Page>
+   </masterPages>
+  </SplitApp> -->
+
+ <!-- <Button press="DialogOpen" text="Open Form "></Button>
+         <Dialog id="d1">
+         <VBox >
+         <Label text="Name"></Label>
+         <Input placeholder="name" id=""></Input>
+          
+           <Label text="email"></Label>
+          <Input placeholder="email"></Input>
+
+           <Label text="PhoneNumber"></Label>
+          <Input placeholder="Phone Number"></Input>
+          
+          <HBox >
+          <Button text="Save amd close" press="onSaveAndClose"></Button>
+          <Button text="close" press="c"></Button>
+          </HBox>
+          
+          </VBox>
+         </Dialog> -->
+<!-- 
+  <SplitApp >
+  <masterPages>
+  <Page >
+  <List  itemPress="onListItemPress"  items="{personModel>/students}">
+  <StandardListItem  title="{personModel>name}" type="Active"></StandardListItem>
+
+  </List>
+  </Page>
+  </masterPages>
+
+  <detailPages>
+
+   <Page  >
+   <VBox binding="{personModel>/oTemps}">
+       <Label text="Id"></Label>
+        <Text text="{personModel>id}"></Text>
+        <Label text="Name"></Label>
+        <Text text="{personModel>name}"></Text>
+        <Label text="Location" ></Label>
+        <Text text="{personModel>location}"></Text>
+         <Text text="{personModel>ids}"></Text>
+          <Text text="{personModel>names}"></Text>
+           <Text text="{personModel>locations}"></Text>
+      </VBox>
+      
+
+      <Table binding="{personModel>/oTemps}">
+      <columns>
+      <Column >
+      <Text text="id"></Text>
+      </Column>
+        <Column >
+        <Text text="name"></Text>
+      </Column>
+        <Column >
+     <Text text="location"></Text>
+      </Column>
+      </columns>
+      <ColumnListItem >
+        <cells>
+          <Text text="{personModel>id}"></Text>
+           <Text text="{personModel>name}"></Text>
+            <Text text="{personModel>location}"></Text>
+        </cells>
+      </ColumnListItem>
+      </Table>
+
+  <Button press="DialogOpen" text="Open Form "></Button>
+         <Dialog id="d1">
+
+
+      
+        <VBox >
+         <Label text="Name"></Label>
+         <Input placeholder="name" id=""></Input>
+          
+           <Label text="email"></Label>
+          <Input placeholder="email"></Input>
+
+           <Label text="PhoneNumber"></Label>
+          <Input placeholder="Phone Number"></Input>
+          </VBox>
+   
+     
+          <beginButton>
+          <Button text="save and close" press="onSaveAndClose"></Button>
+          </beginButton>
+         
+          <endButton >
+          <Button text="close" press="c"></Button>
+          </endButton>
+
+            
+         
+     
+         </Dialog>
+
+  </Page>
+  </detailPages>
+  </SplitApp> -->
+
+
+
+
+  <!--Way 1-->
+
+    <!-- <VBox >
+    <Label text="Name"></Label>
+    <Input value="{personModel>/userDisplay/name}" ></Input>
+
+      <Label text="email"></Label>
+    <Input value="{personModel>/userDisplay/email}"></Input>
+
+      <Label text="PhoneNumber"></Label>
+    <Input value="{personModel>/userDisplay/phoneNumber}"></Input>
+
+       <Label text="location"></Label>
+    <Input value="{personModel>/userDisplay/location}"></Input>
+
+    </VBox> -->
+
+<!--Way 2-->
+<!-- 
+    <Table items="{mOfUser>/userData}" >
+    <columns>
+    <Column ><Text text="Name"></Text></Column>
+    <Column ><Text text="Email"></Text></Column>
+    <Column ><Text text="PhoneNumber"></Text></Column>
+     <Column ><Text text="Location"></Text></Column>
+    </columns>
+    <ColumnListItem >
+    <cells>
+    <Text text="{mOfUser>name}"></Text>
+     <Text text="{mOfUser>email}"></Text>
+      <Text text="{mOfUser>phoneNumber}"></Text>
+        <Text text="{mOfUser>location}"></Text>
+    </cells>
+    </ColumnListItem>
+    </Table> -->
+
+
+
+    <!--Way 3-->
+
+  <!-- <Button press="DialogOpen" text="Open Form "></Button>
+
+
+         <Dialog id="d1" title="Fill The Form">
+     <VBox >
+          <Label text="Name"></Label>
+         <Input placeholder="name" id="nameof" width="300px"></Input>
+          
+           <Label text="email"></Label>
+          <Input placeholder="email" id="emailof" width="300px"></Input>
+
+           <Label text="PhoneNumber"></Label>
+          <Input placeholder="Phone Number" id="phoneNumberof" width="300px"></Input>
+
+           <Label text="Location"></Label>
+          <Input placeholder="location" id="locationof" width="300px"></Input>
+
+     </VBox>
+          
+          <beginButton>
+          <Button text="save" press="onSaveAndClose" ></Button>
+          </beginButton>
+         
+          <endButton >
+          <Button text="close" press="c"></Button>
+          </endButton>
+          
+         </Dialog> -->
+
+
+      <Button text="Open" press="onClickFragDialog"></Button>
+     <SplitApp >
+
+     <masterPages>
+     <Page title="Students">
+     <List itemPress="okbro"  items="{mOfUser>/userData}"  >
+    
+     <StandardListItem title="{mOfUser>name}" type="Active"></StandardListItem>
+    
+     </List>
+    
+     </Page>
+     </masterPages>
+
+     <detailPages>
+     <Page >
+     <VBox >
+     <HBox >
+     <Label text="name:"></Label>
+     <Text text="{mOfUser>/oTemps/name}"></Text>
+     </HBox>
+      <HBox >
+     <Label text="email:"></Label>
+     <Text text="{mOfUser>/oTemps/email}"></Text>
+     </HBox>
+      <HBox >
+     <Label text="phoneNumber:"></Label>
+     <Text text="{mOfUser>/oTemps/phoneNumber}"></Text>
+     </HBox>
+      <HBox >
+     <Label text="location:"></Label>
+     <Text text="{mOfUser>/oTemps/location}"></Text>
+     </HBox>
+     </VBox>
+     </Page>
+     </detailPages>
+     </SplitApp>
+
+
+ <!-- <List items="{mOfUser>/userData}" >
+    <StandardListItem  title="{mOfUser>name}" info="{mOfUser>email}" counter="{mOfUser>phoneNumber}" ></StandardListItem>
+    </List> -->
+     
+    </Page>
+</mvc:View>

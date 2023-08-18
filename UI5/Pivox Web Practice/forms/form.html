@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" style="border: 2px solid black;height: 400px;width: 750px; background-color: skyblue;justify-content: center;"  method="get">
+        <div style="margin: 20px 200px;">
+            <h2 style="margin-left: 30px; ">Registration Form</h2>
+   
+       <label for="nm" style="margin-left: -50px;">FirstName:</label>
+       <input style="width: 100px;" type="text" id="nm" name="name" placeholder="Enter First Name">
+   
+       <label for="nm1" style="margin-left: 20px;">LastName:</label>
+       <input style="display: inline; width: 100px;" type="text" id="nm1" name="name1" placeholder="Enter Last Name">
+   
+       <br><br>
+       <label for="em">Email:</label>
+       <input type="email" name="email" id="em" placeholder="Enter Email" >
+        <br><br>
+   
+        <label for="st">B.Tect Stream:</label>
+        <input list="st" name="">
+        <datalist id="st">
+          <option value="Mech">Mech</option>
+          <option value="Civil">Civil</option>
+          <option value="ECE">ECE</option>
+          <option value="EEE">EEE</option>
+          <option value="CSE">CSE</option>
+        </datalist>
+        <br><br>
+        <label for="num">Phn.No:</label>
+        <input type="number" id="num" name="number" placeholder="Enter PhoneNumber" >
+        <br><br>
+        <label for="pas">Password:</label>
+        <input type="password" id="pas" name="password" placeholder="Enter PhoneNumber" >
+        <br><br>
+         
+        <input type="radio" id="m">
+        <label for="m">male</label>
+   
+        <input type="radio" id="fm" style="margin-left: 40px;">
+        <label for="fm">female</label>
+         <br><br>
+         <input type="checkbox" name="accept" id="ac">
+         <label for="ac">I Accept</label>
+   
+        <br><br>
+        <input type="submit" style="color: white;background-color: rgb(21, 22, 19); border:1px solid white; border-radius: 
+        5px;margin-left: 100px;">
+
+        </div>
+     </form>
+</body>
+</html>

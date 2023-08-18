@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        //Blink
+        $(document).ready(function(){
+           
+            $("button").click(function(){
+                try{
+                function blink(){
+                $(".blinkof").fadeOut(500).fadeIn(500);
+              blink();
+            }
+            blink();
+        }
+        catch(err){}
+            })
+        })
+    </script>
+</head>
+<body>
+    <p>in cricket <b class="blinkof">India has won 2nd world cup in 2011</b> </p>
+    <button>click</button>
+</body>
+</html>

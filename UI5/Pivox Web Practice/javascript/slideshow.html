@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+<body>
+    <div id="images">
+    <img  src="../../Pivox Daily Tasks/Task7/records/animalVoting.jpg"  style="display: none;height: 200px; width: 250px;">
+    <img  src="../../Pivox Daily Tasks/Task7/records/shouts-animals-watch-baby-hemingway.webp"  style="display: none;height: 200px; width: 250px;">
+    <img  src="../../Pivox Daily Tasks/Task7/records/testimg.jpg"  style="display: none;height: 200px; width: 250px;">
+    </div>
+    <img id="imgout" src="./download.jpeg" alt="" style="display: none;height: 200px; width: 250px;" >
+    <button id="b1">click</button>
+    <button id="b2">stop</button>
+
+    <script>
+        $(document).ready(function(){
+            let x=$("#images img");
+            let index=0;
+            let deim=$("#imgout");
+
+          $("#b1").click(function(){
+            deim.fadeOut(500);
+            let con=setInterval(slidshow,1010);
+            let par=document.getElementById("images");
+            let index=0;
+            function slidshow(){
+                x.eq(index).fadeIn(500).delay(10).fadeOut(500);
+                index=(index+1)%x.length; 
+            }
+               $("#b2").click(function(){
+                    clearInterval(con);
+                    deim.fadeIn(2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        //Fade Out 
+        $(document).ready(function(){
+            $("button").mouseenter(function(){
+                $(".fadeof").fadeOut(2000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="fadeof">
+        <img src="./records/testimg.jpg" alt="">
+    </div>
+    <button>FadeOut on Show</button>
+</body>
+</html>

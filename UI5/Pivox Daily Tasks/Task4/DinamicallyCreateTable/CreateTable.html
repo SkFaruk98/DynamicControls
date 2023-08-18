@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(161, 157, 157);
+        }
+        table,th,td,tr{
+            border: 2px solid rgb(110, 221, 36);
+            border-collapse: collapse;
+            text-align: center;
+            background-color: white;
+        }
+       input{
+        width:100px ;
+        border-radius: 5px;
+       }
+       #total{
+        margin-top: -40px;
+       }
+       p{
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+       }
+       #allInputs{
+        border: 2px solid black;
+        width: 500px;
+        padding: 30px 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-left: -30px;
+        background-color: skyblue;
+       }
+       #id1,#id2{
+           margin-bottom: 60px;
+       }
+       .but{
+        display: flex; justify-content: center;
+       }
+       .but1{
+        margin-top: 95px;
+       }
+    </style>
+
+</head>
+
+<body topmargin="100" leftmargin="550">
+ <div id="total">
+   <p id="demo"></p>
+   
+  <div id="allInputs">
+    <!--Add-->
+     <div>
+           <form action="" id="forms"  name="formAdd" >
+            <div>
+                <label for="">Id:</label><br>
+                <input type="text" name="" id="n1">
+            </div>
+            <div>
+                <label for="">Name:</label><br>
+                <input type="text" name="" id="n2">
+            </div>
+            <div>
+                <label for="">Location:</label><br>
+                <input type="text" name="" id="n3">
+            </div>
+           </form>
+           <br>
+           <div  class="but">
+               <button onclick="return add()">add</button>
+           </div>
+     </div>
+    <!--Update -->
+     <div>
+              <div>       
+                  <label for="">Updid:</label><br>
+                  <input type="text" id="updid">
+              </div>
+              <div>
+                <label for="">Name:</label><br>
+                <input type="text" name="" id="namup">
+            </div>
+            <div>
+                <label for="">Location:</label><br>
+                <input type="text" name="" id="locup">
+            </div>
+              <br>
+              <div  class="but">
+                  <button  onclick="return updateRecord()">Update</button>
+              </div>     
+     </div>
+     
+     <div>
+            <label for="">Delid:</label><br>
+             <input type="text" id="delid">
+             <br>
+             <div class="but but1">
+                <button onclick="return deleteRecord()" >Remove</button>
+             </div>
+     </div>         
+
+  </div>
+</div>
+
+<script src="./CreateTables.js"></script>
+
+</body>
+
+</html>

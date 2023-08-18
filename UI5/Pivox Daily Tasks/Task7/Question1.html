@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+ //Slideshow
+    $(document).ready(function(){
+
+      let imgsof = ["#img1", "#img2","#img3"];
+    let count=0;
+    $("#b1").click(function(){
+      function slideshow(){
+
+             $(imgsof[count]).fadeIn(2000).fadeOut(2000,
+             function(){
+                count=(count+1)%imgsof.length;
+                slideshow();
+                $("#b2").click(function(){
+                    $(img)
+                })
+             })
+            }
+      slideshow();
+      
+    });
+    });
+  </script>
+</head>
+<body>
+  
+    <img src="../../Pivox Daily Tasks/Task7/records/animalVoting.jpg" id="img1"  style="display: none; height: 300px; width:500px;" >
+    <img src="../../Pivox Daily Tasks/Task7/records/shouts-animals-watch-baby-hemingway.webp" id="img2" style="display: none; height: 300px; width:500px;" >
+    <img src="../../Pivox Daily Tasks/Task7/records/testimg.jpg" alt="" id="img3" style="display: none; height: 300px; width:500px;">
+    <button id="b1">click</button>
+    <button id="b2">stop</button>
+
+</body>
+
+</html>
+
+ 

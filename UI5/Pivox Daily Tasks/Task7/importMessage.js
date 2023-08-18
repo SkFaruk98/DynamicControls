@@ -1,0 +1,1 @@
+export let message="velcome to the page";

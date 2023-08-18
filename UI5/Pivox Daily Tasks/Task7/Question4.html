@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+    //Remove element by ClassName "old-item"
+      $(document).ready(function(){
+        $(".old-item").css({"background-color":"grey","height":"200px","width":"400px"})
+        $("button").click(function(){
+            $(".old-item").remove();
+        })
+      })
+</script>
+<style>
+    .old-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    table,th,td{
+        border: 2px solid ;
+        border-collapse: collapse;
+    }
+</style>
+</head>
+<body>
+     <div class="old-item">
+        <table>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>locatio</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Faruk</td>
+                <td>Guntur</td>
+            </tr>
+        </table>
+     </div>
+     <button>Delete The Element by className</button>
+</body>
+</html>

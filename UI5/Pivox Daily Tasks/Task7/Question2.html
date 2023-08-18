@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+  <body style="height: 100vh; width: 100%; background-color: rgb(94, 199, 231); align-items: center;justify-content: center;">
+    
+    <div class="a1" style="background-color: rgb(216, 225, 110); height: 200px; width: 200px;" ></div>
+    <script>
+
+    //Alert Message when select any area except div
+    $(document).ready(function()
+    {
+        $("body").not(".a1").click(function(p4)
+        {
+            if(p4.target.className !== "a1"){
+            alert("not on div");
+            }
+        })
+    })
+</script>
+  </body>

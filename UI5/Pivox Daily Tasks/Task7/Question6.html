@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        //Add List of items by taking input
+        
+        $(document).ready(function(){
+            $("div").css({"height":"200px","width":"600px","background-color":"skyblue","padding-top":"25px"})
+              $("button").click(function(){
+                let x=$("input").val();
+                let add=`<li>${x}</li>`;
+                $("ul").append(add);
+              })
+        })
+    </script>
+</head>
+<body>
+    <div>
+    <ul>
+        <li>apple</li>
+        <li>mango</li>
+        <li>orange</li>
+    </ul>
+    <input type="text">
+    <button>Click to Add</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(70, 167, 219);
+        }
+        legend{
+            margin-top: 100px;
+        }
+       #form1{
+        border: 3px solid black;
+        height: 100px ;
+        width: 1300px;
+        text-align: center;
+        background-color: rgb(169, 193, 193);
+        margin-left: 100px;
+       }
+       input{
+        border-radius: 5px;
+        background-color: rgb(228, 223, 223);
+       }
+       label,input{
+        margin-top: 10px;
+       }
+
+    </style>
+</head>
+<body>
+       <legend align="center"><h3>Comparion fo numbers</h3></legend>
+      <div  id="form1" align="center">
+
+        <label for="num1">Numbe1</label>
+       <input type="text" name="" id="num1" autocomplete="off" >
+     
+        <label for="comp" style="margin-left: 50px;" >comparison Operator</label>
+       <input type="text" name="" id="comp" style="width:60px ;"  autofocus>
+     
+       <label for="num2" style="margin-left: 50px;">Number2</label>
+       <input type="number" id="num2">
+
+       <div>
+       <button onclick="check()" style="margin-top: 10px;">submit</button>
+       </div>
+       
+       <div style="display:flex;margin-left: 600px;" >
+        <p><b>Ans:</b></p><p id="ans">........</p>
+       </div>
+    </div>
+
+       
+<script src="./Comparsion.js"></script>
+
+</body>
+</html>

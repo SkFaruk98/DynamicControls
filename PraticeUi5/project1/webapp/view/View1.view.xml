@@ -1,0 +1,49 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:c="sap.ui.core"
+    >
+    <Page id="page" title="{i18n>title}">
+
+           <!-- <f:Form editable="false"  >
+           <f:title>
+             <c:Title text="Address"></c:Title>
+           </f:title>
+           <f:layout>
+             <f:ResponsiveGridLayout 
+              labelSpanXL="2"
+              labelSpanL="7"
+              labelSpanM="2"
+              labelSpanS="12"
+              adjustLabelSpan="true"
+              emptySpanXL="4"
+              emptySpanL="4"
+              emptySpanM="4"
+              emptySpanS="0"
+              columnsL="3"
+              columnsM="1"
+              columnsXL="1"
+             singleContainerFullSize="false"
+                  
+             ></f:ResponsiveGridLayout>
+           </f:layout>
+           <f:formContainers >
+             <f:FormContainer >
+               <f:formElements >
+                 <f:FormElement label="Name">
+                  <f:fields>
+                    <Input ></Input>
+                  </f:fields>
+                 </f:FormElement>
+               </f:formElements>
+             </f:FormContainer>
+           </f:formContainers>
+           </f:Form>      
+   
+           <Text text="sakdjfd"></Text> -->
+
+           <!--1.Button-->
+           <Button text="name" iconFirst="true" icon="sap-icon//accept"></Button>
+    </Page>
+</mvc:View>

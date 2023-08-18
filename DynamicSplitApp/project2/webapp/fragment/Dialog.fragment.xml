@@ -1,0 +1,75 @@
+<core:FragmentDefinition
+  xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
+ 
+
+ <!--    Create  Dialog Box    -->
+  <!-- <Dialog id="savePerson" title="New person" draggable="true">
+     <f:SimpleForm >
+      <VBox >
+       <Label text="Id"></Label>
+       <Input id="idInp" placeholder="Enter Id" type="Number" ></Input>
+       <Text ></Text>
+       <Label text="Name"></Label>
+       <Input id="nameInp" placeholder="Enter Name"></Input>
+        <Text id="errMessage"></Text>
+        </VBox>
+     </f:SimpleForm>
+     <buttons>
+       <Button text="Save" type="Emphasized" press="onSavePerson"></Button>
+       <Button text="close" type="Reject" press="onClosePerson"></Button>
+     </buttons>
+   </Dialog> -->
+
+
+ <!--    Education  Dialog Box    -->
+   <!-- <Dialog id="saveEducation" title="Education Details"  draggable="true">
+    <f:SimpleForm >
+    <Label text="Course"></Label>
+    <Input id="couInp" placeholder="Enter Course"></Input>
+    
+    <Label text="Institution"></Label>
+    <Input id="InsInp" placeholder="Enter Institution"></Input>
+    
+    <Label text="Year Of PassOut"></Label>
+    <Input id="yopInp" placeholder="Enter Year of Pass"></Input>
+    
+    <Label text="Aggreation"></Label>
+    <Input id="AggInp" placeholder="Enter Aggreation"></Input>
+    </f:SimpleForm>
+    <buttons>
+      <Button text="Save" type="Emphasized" press="onSaveEdu"></Button>
+      <Button text="close" type="Reject" press="onCloseEdu"></Button>
+    </buttons>
+
+   </Dialog> -->
+
+
+ <!--    Employment  Dialog Box    -->
+<!-- <Dialog id="saveEmployement" title="Employement Details"  draggable="true">
+     <f:SimpleForm >
+        <Label text="Company"></Label>
+        <Input id="comInp" placeholder="Enter Course"></Input>
+        
+        <Label text="Role"></Label>
+        <Input id="rolInp" placeholder="Enter Institution"></Input>
+        
+        <Label text="Year Of Join"></Label>
+        <Input id="yojInp" placeholder="Enter Year of Join"></Input>
+        
+        <Label text="Year of End"></Label>
+        <Input id="yoeInp" placeholder="Enter Year of End"></Input>
+        
+        <Label text="PhoneNumber"></Label>
+        <Input type="Number" id="phnoInp" placeholder="Enter PhoneNumber"></Input>
+     </f:SimpleForm>
+   <buttons>
+      <Button text="Save" type="Emphasized" press="onSaveEmp"></Button>
+      <Button text="close" type="Reject" press="onCloseEmp"></Button>
+   </buttons>
+  </Dialog> -->
+
+</core:FragmentDefinition
+>

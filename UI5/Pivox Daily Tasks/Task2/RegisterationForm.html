@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Register Form</title>
+    <style>
+
+       body{
+        margin-top: 50px;
+        background-image: url("./pexels-philippe-donn-1169754.jpg");
+        background-size: 800px;
+        opacity: 80%;
+       }
+       #table1{
+        background-color: rgb(249, 244, 244);
+        border: 1px solid black;
+        padding: 20px 20px 20px 20px;
+        box-shadow: 2px 2px rgb(8, 8, 8);
+        margin-top: 100px;
+       }
+  
+      #tr1{
+        height: 38px;
+      }
+      select{
+        height: 22px;
+        width: 170px;
+        border-radius: 5px;
+
+      }
+      td,label,input,select,option{
+        background-color: rgb(249, 244, 244);
+      }
+      input{
+        border: 1.5px solid black;
+        height: 20px;
+        border-radius: 5px;
+    
+      }
+      #but{
+        width: 170px;
+        background-image: linear-gradient(rgb(161, 226, 242) 10%,white 20%,rgb(161, 226, 242) 70%);
+      }
+      
+    </style>
+</head>
+<body >   
+  
+         <table align="center" id="table1" >
+            <form action="./wlcome.html" align="center" id="form1" onsubmit="return validate()" >
+              <tr><td style="font-size: large;">Register a New Student</td></tr>
+            <!--Name Field-->
+            <tr id="tr1">
+                <td ><label for="nm">Name</label></td>
+                <td><input  type="text" name="name" id="nm" onclick="filldata(`namemg`)"></td>
+            </tr>
+            <!--For Name Validation-->
+            <tr id="nammg" style="color: red;"></tr>
+
+             <!--DOB Field-->
+            <tr id="tr1">
+                <td><label for="dob">DOB</label></td>
+                <td><input type="date" name="dateofbirth" id="dob" style="width: 166px;" onclick="filldata(`bodmsg`)"></td>
+                <td style="width: 120px; text-align: center;">(yyyy-mm-dd)</td>
+            </tr>
+              <!--For DOB Validation-->
+            <tr id="bodmg" style="color: red;" ></tr>
+
+              <!--Gender Field-->
+            <tr id="tr1">
+                <td><label for="gn">Gender</label></td>
+                <td><input type="radio" name="gender" id="ml" value="male" onclick="filldata(`gendermg`)">
+                    <label for="">Male</label>
+                     <input type="radio" name="gender" id="fml" value="Female" onclick="filldata(`gendermg`)">
+                    <label for="">Female</label>
+                </td>
+            </tr>
+             <!--For Gender Validation-->
+             <tr id="genmg" style="color: red;"></tr>
+
+            <!--Mail Field-->
+            <tr id="tr1">
+                <td><label for="em">Mail</label></td>
+                <td><a href=""></a><input type="email" id="em" name="email" onclick="filldata(`emailmg`)"></td>
+            </tr>
+            <!--For Mail Validation-->
+            <tr id="mailmg" style="color: red;"></tr>
+            
+             <!--MobileNo Field-->
+            <tr id="tr1">
+                <td><label for="num">Mobile No</label></td>
+                <td><input type="number" name="number" id="num" onclick="filldata(`MobileNomsg`)"></td>
+            </tr>
+             <!--For MobileNo Validation-->
+             <tr id="mobilemg" style="color: red;"></tr>
+
+            <!--Password Field-->
+            <tr id="tr1">
+                <td><label for="pass">Password</label></td>
+                <td><input type="password" id="pass" name="password" onclick="filldata(`passmsge`)" placeholder="minimum 6 characters"></td>
+            </tr>
+             <!--For Password Validation-->
+             <tr id="passmg" style="color: red;"></tr>
+             
+             
+            <!--RePassword Field-->
+            <tr id="tr1">
+                <td><label for="repass">Re Password</label></td>
+                <td><input type="password" name="repassword" id="repass" onclick="filldata(`repassmgs`)"></td>
+            </tr>
+               <!--For RePassword Validation-->
+               <tr id="repassmg" style="color: red;"></tr>
+
+             <!--Course Field-->
+            <tr id="tr1">
+                <td><label for="cor">Course</label></td>
+                <td>
+                    <select name="course" id="cor" onclick="filldata(`selectcourse`)">
+                       <option value="">select course</option>
+                        <option value="M.Tech">M.Tech</option>
+                        <option value="B.Tech">B.Tech</option>
+                        <option value="B.Ed">B.Ed</option>
+                    </select>
+                </td>
+            </tr>
+            <!--For Course Validation-->
+            <tr id="coursemg" style="color: red;"></tr>
+
+
+               <!--Branch Field-->
+            <tr id="tr1">
+                <td><label for="br">Branch</label></td>
+                <td>
+                    <select name="" id="br" onclick="filldata(`branchmsge`)">
+                      <option value="">select branch</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Electric and Elcetronic Engineering">Electric and Elcetronic Engineering</option>
+                        <option value="Electronic and Computer Engineering">Electronic and Computer Engineering</option>
+                        <option value="Computer Science Engineering">Computer Science Engineering</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!--For Branch Validation-->
+            <tr id="branchmg" style="color: red;"></tr>
+
+             <!--Semester Field-->
+            <tr id="tr1">
+                <td><label for="">Semester</label></td>
+                <td><select name="" id="sem" onclick="filldata(`semsMessage`)">
+                  <option value="">sem</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </td>
+            </tr>
+              <!--For Semester Validation-->
+              <tr id="semestermg" style="color: red;"></tr>
+
+            <tr id="tr1">
+                <td></td>
+                <td><input type="submit" value="Register" id="but"  onclick="dataof()" ></td>
+            </tr>
+        </form>
+         </table>
+       
+    <script src="./RegisterationForm.js"></script>
+</body>
+</html>

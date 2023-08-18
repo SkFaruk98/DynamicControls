@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#green").animate({
+                    display: "content",
+                    left:'250px',
+                    borderRadius:"50px",
+                    opacity:"100%",
+                });
+                $("#green").animate({top:'250px',opacity:"100%",borderRadius:"0px",backgroundColor:'#f0f0f0'});
+                $("#green").animate({left:'0px',borderRadius:"50px",opacity:"100%",backgroundColor:"red"});
+                $("#green").animate({top:'100px',borderRadius:"0px",opacity:"100%",backgroundColor:"green"});
+            })
+        })
+    </script>
+    <style>
+        #green{
+            height: 100px;
+            width: 100px;
+            background-color: rgb(224, 100, 22);
+            position: absolute;
+            opacity: 0%;
+       
+        }
+    </style>
+</head>
+<body>
+    <button>Click</button>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis illo aperiam neque corrupti ab quasi ullam voluptatem omnis amet ducimus, doloribus error vel itaque consequuntur magni nihil? Mollitia, ex totam?</p>
+     <div  id="green"></div>
+    
+
+</body>
+</html>

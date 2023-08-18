@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+xmlns="sap.m"
+xmlns:core="sap.ui.core">
+
+    <Dialog id="d1" title="Fill The Form" draggable="true">
+     <VBox >
+          <Label text="Name"></Label>
+         <Input placeholder="name" id="nameof" width="350px"></Input>
+          
+           <Label text="email"></Label>
+          <Input placeholder="email" id="emailof" width="350px"></Input>
+
+           <Label text="PhoneNumber"></Label>
+          <Input placeholder="Phone Number" id="phoneNumberof" width="350px"></Input>
+
+           <Label text="Location"></Label>
+          <Input placeholder="location" id="locationof" width="350px"></Input>
+
+          <Label text="updateByName"></Label>
+          <Input placeholder="update" id="upinp" width="350px"></Input>
+
+           <Label text="DeleteByName"></Label>
+          <Input placeholder="delete" id="delinp" width="350px"></Input>
+
+     </VBox>
+          
+       <buttons>
+          <Button text="create" press="onSave" type="Emphasized" ></Button>
+          <Button text="update" press="onUpdate" type="Attention" ></Button>
+          <Button text="delete" press="onDelete" type="Reject"></Button>
+          <Button text="close" press="c" type="Neutral"></Button>
+       </buttons>
+          
+         </Dialog>
+
+</core:FragmentDefinition>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        //Remove Element by Class name
+        $(document).ready(function(){
+            $("div").css({"height":"300px","width":"400px","background-color":"skyblue"})
+              $("button").click(function(){
+                $(".imgof").remove();
+           });
+        });
+    </script>
+</head>
+<body>
+     <div>
+    
+        <h2 class="imgof" >beautiful img</h2>
+        <p class="imgof"> This is the img of span</p>
+        <img class="imgof" src="./testimg.jpg" alt="" height="200px" width="300px">
+     </div>
+     <button>Click</button>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+
+</head>
+
+<style>
+
+  td,th,table{
+
+    border: 2px solid black;
+
+    border-collapse: collapse;
+
+  }
+
+</style>
+
+<body>
+
+  <p id="a1"></p>
+
+  <div>
+
+    <button onclick="add()">Add</button>
+
+    <button onclick="">delete</button>
+
+    <button onclick="">create</button>
+
+  </div>
+
+  <form name="crud" onsubmit="return add()" >
+
+    <div>
+
+      <label for="">name</label>
+
+      <input type="text" name="name" id="a2">
+
+    </div>
+
+    <div>
+
+      <label for="">age</label>
+
+      <input type="text" name="age" id="a3">
+
+    </div>
+
+    <div>
+
+      <label for="">city</label>
+
+      <input type="text" name="city" id="a4">
+
+    </div>
+
+
+
+
+ 
+
+  </form>
+
+ 
+
+   
+
+  <script>
+
+    let x=""
+
+let a =
+
+    [
+
+        {name:"sai", age : "21",city :"vijayawada"},
+
+            {name:"sumanth", age : "22",city : "guntur"},
+
+            {name:"teja", age:"23",city:"chitoor"},
+
+           
+
+
+
+
+       ]
+
+
+
+
+     
+
+function table1()
+
+{
+
+k=(a.length)
+
+let html="<table>"
+
+  html+="<tr><th><h1>Name</h1></th><th><h1>Age</h1></th><th><h1>City</h1></th></tr>"
+
+for (var i = 0; i < k; i++) {
+
+   html+="<tr>"
+
+  var obj = a[i];
+
+  for (var key in obj) {
+
+    x=(obj[key])+" "
+
+    html+=`<td>${x}</td>`
+
+  }
+
+ html+="</tr>"
+
+   
+
+}
+
+html+="</table>"
+
+document.getElementById("a1").innerHTML=html;
+
+}
+
+table1()
+
+function add()
+
+{
+
+  let b1=document.forms["crud"]["name"].value;
+
+  let b2=document.forms["crud"]["age"].value;
+
+  let b3=document.forms["crud"]["city"].value;
+
+if((b1 == "") && (b2=="")&&(b3==""))
+
+{
+
+  alert('Please fill all fields');
+
+}
+
+else{
+
+  let obj={
+
+    'name':b1,
+
+    'age' : parseInt(b2),
+
+    'city' : b3
+
+  }
+
+  a.push(obj);
+
+  this.table1()
+
+}
+
+}
+
+  </script>
+
+   
+
+</body>
+
+</html>

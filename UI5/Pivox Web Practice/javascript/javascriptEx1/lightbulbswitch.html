@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+     
+        <button  onclick="y()">Light Off</button>
+        <img src="./bulbimgoff.jpg" alt="" id="imgs" height="150px" width="100px">
+        <button onclick="x()">Light ON</button>
+   
+
+    <script>
+        let image=document.getElementById("imgs");
+        function x(){
+            image.src="./bulbimgon.jpg"
+        }
+        function y(){
+            image.src="./bulbimgoff.jpg"
+        }
+    </script>
+</body>
+</html>
