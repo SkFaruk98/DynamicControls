@@ -44,6 +44,12 @@
            <Text text="sakdjfd"></Text> -->
 
            <!--1.Button-->
-           <Button text="name" iconFirst="true" icon="sap-icon//accept"></Button>
+           <Button text="name"  icon="sap-icon://accept"></Button>
+
+
+
+
+
+
     </Page>
 </mvc:View>
