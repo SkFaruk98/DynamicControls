@@ -71,7 +71,7 @@ sap.ui.define([
                 let oModel = new sap.ui.model.json.JSONModel({
                     oLabels: [
                         { label: "id" },
-                        { label: "name" },],
+                        { label: "name" }],
                     oLabelsEdu: [
                         { label: "course" },
                         { label: "institution" },
@@ -86,7 +86,7 @@ sap.ui.define([
                         { label: "PhoneNumber" }
                     ],
                     Buttonof: false,
-                    oPersonsNew: { id: "", name: "" },
+                    oPersonsNew: [{ id: "", name: "" }],
                     oPersonsUpdate: { id: "", name: "" },
 
                     oPersonEdu: { course: "", institution: "", YearOfPass: "", Aggregation: "" },
@@ -445,6 +445,7 @@ sap.ui.define([
 
                         oPerson.experience = (iExptotal);
                         this.getView().getModel("studentModel").setProperty("/oStu", oPerson)
+
                         this.byId("stuEdu").setMode("None");
                         this.byId("stuEdu").setMode("MultiSelect");
                         this.byId("stuEmp").setMode("None");

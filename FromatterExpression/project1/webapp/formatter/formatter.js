@@ -20,7 +20,7 @@ sap.ui.define([],
           let experience=0;
           aEmp.forEach(oEmp=>{
             if(oEmp.YearOfEnd!="-")
-            experience+=(oEmp.YearOfEnd)- (oEmp.YearOfJoin);
+            experience+=Number(oEmp.YearOfEnd)- Number(oEmp.YearOfJoin);
             else
             experience+=new Date().getFullYear()-(oEmp.YearOfJoin)
           })
