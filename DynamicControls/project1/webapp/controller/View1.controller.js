@@ -59,8 +59,6 @@ sap.ui.define([
          oDialog.addContent(simpleform)
          oDialog.addContent(ButtonClose)
              oPage.addContent(Buttonof);
-               
-   
             }
        
         });

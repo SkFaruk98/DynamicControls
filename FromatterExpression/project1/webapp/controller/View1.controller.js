@@ -440,10 +440,10 @@ sap.ui.define([
                 })
             },
             onSearch: function (oEvent) {
-                let oGetValue = this.getView().byId('sel').getBinding('items')
+                let oGetValue = this.getView().byId('sel').getBinding('items');
                 let oGetSearchVal = oEvent.getSource().getValue()
-                let oFilter = new sap.ui.model.Filter("name", FilterOperator.Contains, oGetSearchVal)
-                oGetValue.filter(oFilter)
+                let oFilter = new sap.ui.model.Filter("name", FilterOperator.Contains, oGetSearchVal);
+                oGetValue.filter(oFilter);
             },
 
             //ClickEvent on StandListItem

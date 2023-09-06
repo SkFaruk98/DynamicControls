@@ -5,7 +5,7 @@ metadata:
   name: project1
 type: application
 framework:
-  name: SAPUI5
+  name: Faruk
   version: 1.117.0
   libraries:
     - name: sap.m

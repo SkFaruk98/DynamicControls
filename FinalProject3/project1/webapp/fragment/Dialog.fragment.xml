@@ -1,0 +1,12 @@
+<core:FragmentDefinition
+xmlns:core="sap.ui.core"
+xmlns="sap.m"
+>
+<Dialog title="Sort" id="dialog" >
+<Toolbar height="100px" width="200px">
+ <ComboBox items="{saleOrderModel>/labels}" >
+ <core:Item text="{saleOrderModel>label}"></core:Item>
+ </ComboBox>
+ </Toolbar>
+</Dialog>
+</core:FragmentDefinition>

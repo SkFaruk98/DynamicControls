@@ -1,0 +1,31 @@
+<mvc:View xmlns:semantic="sap.m.semantic"
+ controllerName="project1.controller.View2"
+ xmlns:mvc="sap.ui.core.mvc"
+ xmlns="sap.m"
+ id="view2"
+>
+
+<FlexBox height="100px">
+</FlexBox>
+
+<Toolbar style="Standard">
+<Title text="InFormation" ></Title>
+</Toolbar>
+<SplitApp >
+<masterPages>
+<List >
+<StandardListItem title="Order" />
+<StandardListItem title="Items" />
+<StandardListItem title="Favorites" />
+<StandardListItem title="Payment Mode" />
+<StandardListItem title="Address" />
+</List>
+</masterPages>
+<detailPages >
+<Page showHeader="false">
+
+</Page>
+</detailPages>
+</SplitApp>
+
+</mvc:View>

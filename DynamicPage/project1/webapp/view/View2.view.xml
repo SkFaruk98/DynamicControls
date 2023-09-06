@@ -1,0 +1,138 @@
+<mvc:View
+controllerName="project1.controller.View2"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:core="sap.ui.core"
+xmlns:l="sap.ui.layout"
+xmlns="sap.m" id="okbro">
+<Page id="Mainpage2" >
+ <NavContainer id="navPage" height="95%" width="100%">
+ <Page id="page1" title="Fast Food">
+ <l:Grid defaultSpan="XL3 L3 M6 S12">
+  <l:content>
+  <VBox alignItems="Center">
+   <Avatar 
+ src="../DynamicPage/food.jpg"
+ displaySize="XL"
+ displayShape="Square"
+ showBorder="true"
+ />
+ <Text text="Hello World"></Text>
+  </VBox>
+  <VBox alignItems="Center">
+     <Avatar 
+ src="food"
+ displaySize="L"
+ displayShape="Square"
+ showBorder="true"
+ />
+ <Text text="{componentModel>/name}"></Text>
+  </VBox>
+   <VBox alignItems="Center">
+  <Avatar 
+  src=""
+  displayShape="Square"
+  displaySize="M"
+  showBorder="true"
+  ></Avatar>
+  </VBox>
+
+   <VBox alignItems="Center">
+  <Avatar 
+  src=""
+  displayShape="Square"
+  displaySize="S"
+  showBorder="true"
+  ></Avatar>
+  </VBox>
+  </l:content>
+  </l:Grid>
+
+  <l:Grid class="grid2">
+  <l:content>  
+  <VBox alignItems="Center">
+  <Avatar 
+  src=""
+  displayShape="Circle"
+  displaySize="XL"
+  showBorder="true"
+  ></Avatar>
+  <Text text="Hello World"></Text>
+  </VBox>
+
+   <VBox alignItems="Center">
+  <Avatar 
+  src=""
+  displayShape="Circle"
+  displaySize="L"
+  showBorder="true"
+  ></Avatar>
+  </VBox>
+
+   <VBox alignItems="Center">
+  <Avatar 
+  src=""
+  displayShape="Circle"
+  displaySize="M"
+  showBorder="true"
+  ></Avatar>
+  </VBox>
+ <VBox alignItems="Center">
+  <Avatar 
+  src=""
+  displayShape="Circle"
+  displaySize="M"
+  showBorder="true"
+  ></Avatar>
+  </VBox>
+
+  </l:content>
+ </l:Grid>
+
+ 
+ 
+
+
+ </Page>
+  <Page id="page2" title="Veg">
+ 
+ </Page>
+  <Page id="page3" title="Non-Veg">
+ 
+ </Page>
+ </NavContainer>
+
+
+ <Toolbar class="button">
+   <Button text="back" icon="sap-icon://nav-back" press="onNav"></Button>
+
+ <Button text="Page1" press="onNav">
+ <customData>
+ <core:CustomData key="target" value="page1"></core:CustomData>
+ </customData>
+ </Button>
+
+ <Button text="Page2" press="onNav">
+ <customData>
+ <core:CustomData key="target" value="page2"></core:CustomData>
+ </customData>
+</Button>
+
+  <Button text="Page3" press="onNav">
+ <customData>
+ <core:CustomData key="target" value="page3"></core:CustomData>
+ </customData>
+</Button>
+</Toolbar>
+
+<footer>
+<Toolbar >
+<Bar >
+<contentRight>
+ <Button text="back" icon="sap-icon://nav-back" iconFirst="false" press="onPress" type="Emphasized"/>
+</contentRight>
+</Bar>
+</Toolbar>
+</footer>
+
+</Page>
+</mvc:View>

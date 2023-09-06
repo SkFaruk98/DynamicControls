@@ -1,0 +1,49 @@
+<mvc:View xmlns:semantic="sap.m.semantic"
+ controllerName="project1.controller.View2"
+ xmlns:mvc="sap.ui.core.mvc"
+ xmlns="sap.m"
+ id="view2"
+>
+
+<Page >
+
+<headerContent>
+<Bar >
+<contentLeft>
+<Button text="Navigate Back" icon="sap-icon://nav-back" press="onClickNavback"></Button>
+</contentLeft>
+</Bar>
+
+</headerContent>
+
+<FlexBox height="100px">
+</FlexBox>
+
+<Toolbar style="Standard">
+<Title text="InFormation" ></Title>
+</Toolbar>
+<SplitApp >
+<masterPages>
+<List itemPress="onMasterItemPress" items="{saleOrderModel>/oMasterList}">
+<StandardListItem title="{saleOrderModel>title}" />
+</List>
+</masterPages>
+<detailPages >
+<NavContainer id="NavContainer">
+ <pages>
+ <Page id="page1">
+ 
+ </Page>
+ <Page >
+ 
+ </Page>
+ <Page >
+ 
+ </Page>
+ </pages>
+</NavContainer>
+</detailPages>
+</SplitApp>
+
+</Page>
+</mvc:View>

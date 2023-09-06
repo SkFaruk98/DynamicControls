@@ -4,6 +4,7 @@ sap.ui.define([
 function(Controller){
     "use strict";
     
-    function()
-       
+    return {
+        
+    } 
 })

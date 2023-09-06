@@ -1,0 +1,179 @@
+<mvc:View controllerName="project1.controller.Control"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:l="sap.ui.layout.form"
+    >
+    <Page id="page" title="{i18n>title}">
+       <!-- <f:DynamicPage >
+        <f:title>
+          <f:DynamicPageTitle >
+            <f:heading>
+              <Title text="Faruk Page"></Title>
+            </f:heading>
+             <f:breadcrumbs>
+               <Breadcrumbs currentLocationText="ClickOnLink">
+                  <Link text="link1"></Link>
+                  <Link text="link1"></Link>
+                  <Link text="link1"></Link>
+                  <Link text="link1"></Link>
+               </Breadcrumbs>
+             </f:breadcrumbs>
+
+             <f:content >
+             <OverflowToolbar class="marginof">
+                <GenericTag  text="Success" design="StatusIconHidden" status="Success">
+                 <ObjectNumber number="100" unit="s" state="Success"></ObjectNumber>
+                </GenericTag>
+                </OverflowToolbar>
+             </f:content>
+
+             <f:expandedContent>
+             <Text text="Junier Software Developer" />
+             </f:expandedContent>
+             
+            
+             <f:snappedContent>
+               <Text text="Junier Software Developer" />
+             </f:snappedContent>
+
+             <f:actions>
+              <Button text="helo"></Button>
+               <Button text="helo"></Button>
+                <Button text="helo"></Button>
+                 <Button text="helo"></Button>
+             </f:actions>
+             <f:navigationActions>
+                  <Button text="helo"></Button>
+                 <Button text="helo"></Button>
+             </f:navigationActions>
+          </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+        <f:DynamicPageHeader pinnable="true" >
+        <HBox >
+        
+          <VBox class="sapUiMediumMarginEnd">
+           <ObjectAttribute text="what bro" ></ObjectAttribute>
+           <ObjectAttribute text="what bro" ></ObjectAttribute>
+           <ObjectAttribute text="what bro" ></ObjectAttribute>
+          </VBox>
+
+           <VBox >
+           <ObjectAttribute text="what bro" ></ObjectAttribute>
+           <ObjectAttribute text="what bro" ></ObjectAttribute>
+           <ObjectAttribute text="what bro" ></ObjectAttribute>
+          </VBox>
+        </HBox>
+        
+        </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+           
+     <Table items="{studentModel>/education}" id="stuEdu" mode="MultiSelect" selectionChange="onSelectOfEdu" itemPress="onEduPress">
+       <columns>
+        <Column ><Text text="Course"></Text></Column>
+        <Column ><Text text="Institution"></Text></Column>
+        <Column ><Text text="Year of pass"></Text></Column>
+        <Column ><Text text="Aggregation"></Text></Column>
+       </columns>
+
+     <ColumnListItem >
+      <cells>
+       <Text text="{studentModel>course}"></Text>
+       <Text text="{studentModel>institution}"></Text>
+       <Text text="{studentModel>YearOfPass}"></Text>
+       <Text text="{studentModel>Aggregation}"></Text>
+      </cells>
+     </ColumnListItem>
+
+     </Table>
+        </f:content>
+       </f:DynamicPage> -->
+
+
+
+<!-- saveValueHelp in Input -->
+      <!-- <Input 
+       id="input"
+       showValueHelp="true"
+       valueHelpRequest="onClickValueHelp"
+       ></Input>  -->
+
+<!-- SegementedButton -->
+  <!-- <SegmentedButton selectedKey="values" items="{studentModel>/operators}">
+     <items>
+     <SegmentedButtonItem text="{studentModel>operator}"></SegmentedButtonItem>
+     </items>
+  </SegmentedButton> -->
+
+  <!-- ObjectAttribute -->
+    <!-- <ObjectAttribute text="Object text" title="Object Title"></ObjectAttribute> -->
+
+    <!-- Object Header -->
+    <!-- <ObjectHeader title="Object Header" number="865" titleLevel="H2"  titleActive="true"></ObjectHeader> -->
+
+   <!-- Toolbar -->
+   <!-- <headerContent>
+    <Toolbar >
+    <ToolbarSpacer/>
+       <Button text="1"></Button>
+        <Button text="2"></Button>
+         <Button text="3"></Button>
+    </Toolbar>
+    </headerContent> -->
+
+    <!-- <Wizard>
+    <WizardStep title="Step-1" validated="true">
+    
+    <l:Form >
+      <l:title>
+       <core:Title  text="Order Details"/>
+      </l:title>
+
+      <l:layout>
+        <l:ResponsiveGridLayout ></l:ResponsiveGridLayout>
+      </l:layout>
+
+      <l:formContainers >
+        <l:FormContainer >
+            <l:formElements>
+             <l:FormElement label="course">
+               <l:fields>
+                 <Input ></Input>
+               </l:fields>
+             </l:FormElement>
+
+              <l:FormElement label="course">
+               <l:fields>
+                 <Input ></Input>
+               </l:fields>
+             </l:FormElement>
+
+              <l:FormElement label="course">
+               <l:fields>
+                 <Input ></Input>
+               </l:fields>
+             </l:FormElement>
+                
+            </l:formElements>
+        </l:FormContainer>
+      </l:formContainers>
+
+    </l:Form>
+    
+    </WizardStep>
+     <WizardStep title="Step-2" validated="true">
+    
+    
+      </WizardStep>
+     <WizardStep title="Step-3" validated="true">
+    </WizardStep>
+    </Wizard> -->
+
+
+    </Page>
+</mvc:View>

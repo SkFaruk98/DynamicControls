@@ -1,0 +1,44 @@
+<mvc:View controllerName="project1.controller.Faruk"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.comp.filterbar"
+    >
+    <Page id="page" title="{i18n>title}">
+       
+       <f:FilterBar  >
+       <f:filterGroupItems>
+          <f:FilterGroupItem label="Course" name="courof" visibleInFilterBar="true" groupName="Group1">
+          <f:control>
+          <MultiComboBox name="Course" ></MultiComboBox>
+          </f:control>
+          </f:FilterGroupItem>
+       </f:filterGroupItems>
+        <f:filterGroupItems>
+          <f:FilterGroupItem label="Institution" name="courof" visibleInFilterBar="true" groupName="Group2">
+          <f:control>
+          <ComboBox ></ComboBox>
+          </f:control>
+          </f:FilterGroupItem>
+       </f:filterGroupItems>
+       </f:FilterBar>
+      
+        <Table items="{studentModel>/education}" id="stuEdu" mode="MultiSelect" selectionChange="onSelectOfEdu" itemPress="onEduPress">
+       <columns>
+        <Column ><Text text="Course"></Text></Column>
+        <Column ><Text text="Institution"></Text></Column>
+        <Column ><Text text="Year of pass"></Text></Column>
+        <Column ><Text text="Aggregation"></Text></Column>
+       </columns>
+
+     <ColumnListItem >
+      <cells>
+       <Text text="{studentModel>course}"></Text>
+       <Text text="{studentModel>institution}"></Text>
+       <Text text="{studentModel>YearOfPass}"></Text>
+       <Text text="{studentModel>Aggregation}"></Text>
+      </cells>
+     </ColumnListItem>
+
+     </Table>
+    </Page>
+</mvc:View>

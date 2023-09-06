@@ -1,0 +1,49 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" >
+  <SplitApp > 
+   <masterPages>
+   <Page>
+    <headerContent>
+    <SearchField liveChange="onSearch"></SearchField>
+    </headerContent>
+  <List items="{studentModel>/persons}" itemPress="percCalculate" id="sel" mode="SingleSelectMaster">
+  <StandardListItem title="{studentModel>name}" type="Active"></StandardListItem>
+  </List>
+ </Page>
+   </masterPages>
+   <detailPages >
+   <Page title="Education Details">   
+    <Table items="{studentModel>/aDuplicateEducation}" id="stuEdu" mode="SingleSelectMaster" selectionChange="onSelectOfEdu"  >
+       <columns>
+        <Column ><Text text="Course"></Text></Column>
+        <Column ><Text text="Institution"></Text></Column>
+        <Column ><Text text="Year of pass"></Text></Column>
+        <Column ><Text text="Aggregation"></Text></Column>
+       </columns>
+
+     <ColumnListItem >
+      <cells>
+       <Text text="{studentModel>course}"></Text>
+       <Text text="{studentModel>institution}"></Text>
+       <Text text="{studentModel>YearOfPass}"></Text>
+       <Text text="{studentModel>Aggregation}"></Text>
+      </cells>
+     </ColumnListItem>
+     
+     </Table>
+   </Page>
+   </detailPages>
+  </SplitApp>
+<footer>
+<Toolbar >
+<Bar >
+<contentRight>
+ <Button text="next" icon="sap-icon://forward" iconFirst="false" press="onClick" type="Emphasized"/>
+</contentRight>
+</Bar>
+</Toolbar>
+</footer>
+    </Page>
+</mvc:View>

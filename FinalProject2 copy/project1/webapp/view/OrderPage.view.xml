@@ -1,0 +1,131 @@
+<mvc:View
+    controllerName="project1.controller.OrderPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:chart="sap.suite.ui.microchart"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+        class="pageof"
+    >
+ 
+        <FlexBox
+            width="24rem"
+            height="200px"
+            alignContent="Center"
+            alignItems="Center"
+            class="flexof"
+        >
+            <chart:InteractiveDonutChart
+                displayedSegments="4"
+                class="sapUiLargeMarginEnd"
+            >
+                <chart:segments>
+                    <chart:InteractiveDonutChartSegment
+                        label="{saleOrderModel>/first/name}"
+                        value='{saleOrderModel>/first/count}'
+                        displayedValue="{saleOrderModel>/first/count}"
+                    />
+                    <chart:InteractiveDonutChartSegment
+                        label="{saleOrderModel>/second/name}"
+                        value="{saleOrderModel>/second/count}"
+                        displayedValue="{saleOrderModel>/second/count}"
+                    />
+                    <chart:InteractiveDonutChartSegment
+                        label="others"
+                        value="{saleOrderModel>/other}"
+                        displayedValue="{saleOrderModel>/other}"
+                    />
+                </chart:segments>
+            </chart:InteractiveDonutChart>
+
+            <chart:InteractiveDonutChart
+                displayedSegments="2"
+                class="sapUiLargeMarginEnd"
+            >
+                <chart:segments>
+                    <chart:InteractiveDonutChartSegment
+                        label="Delivered"
+                        value="{saleOrderModel>/delivery/deliveryCount}"
+                        displayedValue="{saleOrderModel>/delivery/deliveryCount}"
+                    />
+                    <chart:InteractiveDonutChartSegment
+                        label="Processing"
+                        value="{saleOrderModel>/delivery/processCount}"
+                        displayedValue="{saleOrderModel>/delivery/processCount}"
+                    />
+                </chart:segments>
+            </chart:InteractiveDonutChart>
+
+            <chart:InteractiveBarChart
+                labelWidth="20%"
+                press="press"
+                displayedBars="4"
+               
+            >
+                <chart:InteractiveBarChartBar
+                    label="{saleOrderModel>/catogery/0/name}"
+                    value="{saleOrderModel>/catogery/0/count}"
+                />
+                <chart:InteractiveBarChartBar
+                        label="{saleOrderModel>/catogery/1/name}"
+                    value="{saleOrderModel>/catogery/1/count}"
+                />
+                <chart:InteractiveBarChartBar
+                        label="{saleOrderModel>/catogery/2/name}"
+                    value="{saleOrderModel>/catogery/2/count}"
+                />
+                  <chart:InteractiveBarChartBar
+                         label="{saleOrderModel>/catogery/3/name}"
+                    value="{saleOrderModel>/catogery/3/count}"
+                />
+            </chart:InteractiveBarChart>
+        </FlexBox>
+
+        <Toolbar width="100%"> 
+           <Bar>
+           <contentMiddle>
+            <Button icon="sap-icon://sort" text="Sort" type="Transparent" press="onClickSort"></Button>
+          <Button icon="sap-icon://filter" text="Filter" type="Transparent" press="onClickOnFilterButton"></Button>
+            <Button icon="sap-icon://group-2" text="Group" type="Transparent" press="onClickGroup"></Button>
+            <Button icon="sap-icon://table-view"  text="Edit Columns" type="Transparent"></Button>
+           </contentMiddle>
+           </Bar>
+        </Toolbar>
+
+
+        
+          <Table 
+            columns="{
+                 path:'saleOrderModel>/labels',
+                 factory:'.columnsHeading'
+            }"
+
+            items="{
+               path:'saleOrderModel>/orders',
+               factory:'.itemsData'
+            }"
+
+          itemPress="onPressItem"
+          selectionChange="onSelect"
+          mode="MultiSelect" 
+          id="orderTable"
+          ></Table>
+          
+
+          <footer>
+           <Toolbar>
+             <Bar >
+              <contentMiddle>
+              <Button text="Create" type="Emphasized"  press="onCreate"  />
+               <Button text="Delete" type="Reject" visible="{= ${saleOrderModel>/buttonToggle} === true? true:false }" press="onDelete" />
+              </contentMiddle>
+             </Bar>
+           </Toolbar>
+          </footer>
+          
+    </Page>
+</mvc:View>

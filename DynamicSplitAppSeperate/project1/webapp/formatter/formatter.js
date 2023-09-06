@@ -15,7 +15,6 @@ return {
         return `Total Percentage: ${average}`;
         }
     },
-
     calExperience:function(aEmp){
         let experience=0;
         aEmp.forEach(oEmp=>{
@@ -24,7 +23,7 @@ return {
           else
           experience+=new Date().getFullYear()-(oEmp.YearOfJoin)
         })
-        return `Year of Exp: ${experience}`;
+        return experience;
     }
   }
 

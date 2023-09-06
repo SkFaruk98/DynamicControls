@@ -1,0 +1,61 @@
+<mvc:View controllerName="project1.controller.Control"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:m="sap.suite.ui.microchart"
+    xmlns:l="sap.ui.layout"
+    >
+    <Page id="page" title="{i18n>title}">
+
+
+              <l:Grid >
+
+              <l:content>
+                 <m:InteractiveDonutChart displayedSegments="3">
+       <m:segments>
+         <m:InteractiveDonutChartSegment label="dn1" value="24"  displayedValue="24%"></m:InteractiveDonutChartSegment>
+          <m:InteractiveDonutChartSegment label="dn2" value="50"  displayedValue="50%"></m:InteractiveDonutChartSegment>
+           <m:InteractiveDonutChartSegment label="dn3" value="26"  displayedValue="26%"></m:InteractiveDonutChartSegment>
+       </m:segments>
+       </m:InteractiveDonutChart>
+             
+
+    
+       <m:InteractiveDonutChart displayedSegments="3">
+       <m:segments>
+         <m:InteractiveDonutChartSegment label="dn1" value="24"  displayedValue="24%"></m:InteractiveDonutChartSegment>
+          <m:InteractiveDonutChartSegment label="dn2" value="50"  displayedValue="50%"></m:InteractiveDonutChartSegment>
+           <m:InteractiveDonutChartSegment label="dn3" value="26"  displayedValue="26%"></m:InteractiveDonutChartSegment>
+       </m:segments>
+       </m:InteractiveDonutChart>
+
+    
+     <m:InteractiveBarChart
+                labelWidth="20%"
+                press="press"
+                displayedBars="3"
+            >
+                <m:InteractiveBarChartBar
+                    label="Product 1"
+                    value="10"
+                />
+                <m:InteractiveBarChartBar
+                    label="Product 2"
+                    value="20"
+                />
+                <m:InteractiveBarChartBar
+                    label="Product 3"
+                    value="70"
+                />
+            </m:InteractiveBarChart>
+        
+        </l:content>
+       </l:Grid>
+   
+ 
+
+  
+
+    </Page>
+</mvc:View>

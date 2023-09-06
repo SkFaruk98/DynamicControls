@@ -1,0 +1,44 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    >
+    <Page id="page" title="{i18n>title}">
+       <SplitApp id="splitapp">
+    <masterPages >
+       <Page showFooter="true"  class="sapuipadding">
+
+         <headerContent >
+           <SearchField liveChange="onSearch"></SearchField>
+         </headerContent>
+         <List id="sel" items="{studentModel>/persons}" itemPress="onClickItem" selectionChange="onSelect" mode="MultiSelect" >
+          <StandardListItem title="{studentModel>name}" type="Active"></StandardListItem>
+         </List>
+
+     </Page>
+    </masterPages>
+   <detailPages>
+   <Page >
+   <Text text="Welcome to the page"></Text>
+   </Page>
+   </detailPages>
+  </SplitApp>
+
+
+<!--Buttons-->
+<footer >
+  <Toolbar height="50px">
+    <Bar>
+    <contentLeft >
+     <HBox alignContent="End" >
+       <Button text="Create"   type="Emphasized" icon="sap-icon://create"  press="onCreate" ></Button>
+       <Button ></Button>
+       <Button text="Delete"   type="Reject" icon="sap-icon://delete" press="onDelete" enabled="{= ${labelModel>/Buttonof}===true? true:false }"></Button>
+       <Button ></Button>
+       <Button text="Update"  type="Accept" icon="sap-icon://edit" press="onUpdate" enabled="{= ${labelModel>/Buttonof}===true? true:false }"></Button>
+     </HBox>
+    </contentLeft>
+    </Bar>
+  </Toolbar>
+</footer>
+    </Page>
+</mvc:View>

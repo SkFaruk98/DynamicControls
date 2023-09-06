@@ -11,7 +11,7 @@
        <Page showFooter="true"  class="sapuipadding">
 
          <headerContent >
-           <SearchField liveChange="onSearch"></SearchField>
+           <SearchField liveChange="onSearch" ></SearchField>
          </headerContent>
          <List id="sel" items="{studentModel>/persons}" growingScrollToLoad="true" selectionChange="onClickItem" mode="MultiSelect">
           <StandardListItem title="{studentModel>name}" type="Active" ></StandardListItem>

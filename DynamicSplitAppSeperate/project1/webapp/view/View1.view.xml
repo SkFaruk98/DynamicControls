@@ -22,8 +22,12 @@
 
   <detailPages >
   <Page >
-  <Text text="wlecome to the page"></Text></Page>
-  <Page title="Person Data" visible="false" id="detailPage">
+  <Text text="wlecome to the page"></Text>
+  
+  </Page>
+
+
+  <Page title="Person Data"  id="detailPage">
 
     <!--Detali page Header-->
    
@@ -42,7 +46,7 @@
 
      <HBox  >
         <Text  text="Name: {studentModel>/oStu/name}" width="820px" id="stunam"></Text>
-        <Text  text="{
+        <Text  text="Year of Exp: {
                 path:'detailsModel>/aDuplicateEmploymentOf',
                 formatter:'.formatter.calExperience'
                    }" id="stuyoe" ></Text>

@@ -9,7 +9,8 @@ sap.ui.define([
     "sap/m/Input",
     "sap/m/Button",
     "sap/ui/model/FilterOperator",
-    "project1/formatter/formatter"
+    "project1/formatter/formatter",
+    "sap/m/MessageToast"
 
 ],
     /**
@@ -27,7 +28,6 @@ sap.ui.define([
                     create: false,
 
           persons: [
-              
                   {id: 1, name: "Shaik Faruk", totalmarks: 0, experience: 0},
                   {id: 2, name: "Naveen", totalmarks: 0, experience: 0}],
           education:[
@@ -82,6 +82,14 @@ sap.ui.define([
                 this.oPage = this.byId("page");
 
             },
+            objectCompare:function(object1,object2){
+                let ini=true;
+                 for(let key in object1){
+                    if(object1[key]!=object2[key])
+                    ini=false;
+                 }
+                 return ini;
+            },
             formFunction: function (formpath, saveFunction, InputPath) {
                 let oForm = new Form({
                     editable: true,
@@ -119,9 +127,7 @@ sap.ui.define([
                     title: "Person Details",
                     buttons: [new Button({
                         text: "save", press: () => {
-                            if (saveFunction == "create")
-                                this.onSavePerson();
-                            else if (saveFunction == "update")
+                            if (saveFunction == "create"|| saveFunction == "update" )
                                 this.onSavePerson();
                             else if (saveFunction == "Edu")
                                 this.onSaveEdu();
@@ -152,7 +158,6 @@ sap.ui.define([
                 let createof = this.getView().getModel("studentModel").getProperty("/create");
 
                 if (createof) {
-
                     this.byId("sel").setMode("None");
                     let oPerson = this.getView().getModel("labelModel").getProperty("/oPersonsNew");
                     let aPersons = this.getView().getModel("studentModel").getProperty("/persons");
@@ -205,8 +210,8 @@ sap.ui.define([
             onUpdate: function () {
                 this.getView().getModel("studentModel").setProperty("/create", false)
 
-                let idof = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getObject();
-                this.getView().getModel("labelModel").setProperty("/oPersonsUpdate", idof)
+                let oPerson = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getObject();
+                this.getView().getModel("labelModel").setProperty("/oPersonsUpdate", {...oPerson})
                 let formPath = "labelModel>/oLabels"
                 let InputPath = `labelModel>/oPersonsUpdate/`;
                 let saveFunction = "update";
@@ -217,21 +222,47 @@ sap.ui.define([
             //For Select and Clicking Delete Button 
             onDelete: function () {
 
-               
-                let oSelectedPersons = this.getView().byId("sel").getSelectedItems()
-                let count=0;
-                oSelectedPersons.forEach(oPerson=>{
-                let indexof=oPerson.getBindingContext("studentModel").getPath().split("/")[2];
-                let changeindexof=indexof-count;
-                let aPersons = this.getView().getModel("studentModel").getProperty("/persons");
-                let aEducation = this.getView().getModel("studentModel").getProperty("/persons/" + changeindexof + "/education");
-                let aEmployement = this.getView().getModel("studentModel").getProperty("/persons/" + changeindexof + "/employment");
-                aEmployement.splice(0, aEducation.length);
-                aEducation.splice(0, aEducation.length);
-                aPersons.splice(changeindexof, 1);
-                this.getView().getModel("studentModel").setProperty("/persons", aPersons)
-                count++;
-            })
+                let aPersons = this.getView().getModel("studentModel").getProperty("/persons")
+                let aEducation = this.getView().getModel("studentModel").getProperty("/education")
+                let aEmployment = this.getView().getModel("studentModel").getProperty("/employment")
+                let aDuplicateEducationOf = this.getView().getModel("studentModel").getProperty("/aDuplicateEducation");
+                let aDuplicateEmploymentOf = this.getView().getModel("studentModel").getProperty("/aDuplicateEmployment");
+                let sId = this.byId('sel').getSelectedItem().getBindingContext('studentModel').getObject().id;
+                
+                aDuplicateEducationOf.forEach(oEdu => {
+                    for(let i=0;i<aEducation.length;i++){
+                        let findof=  this.objectCompare(oEdu,aEducation[i]);
+                        if(findof==true){
+                            aEducation.splice(i,1)
+                            this.getView().getModel("studentModel").setProperty("/education",aEducation);
+                            break;
+                        }
+                    }
+                });
+
+                aDuplicateEmploymentOf.forEach(oEmp => {
+                    for(let i=0;i<aEmployment.length;i++){
+                        let findof=  this.objectCompare(oEmp,aEmployment[i]);
+                        if(findof==true){
+                            aEmployment.splice(i,1)
+                            this.getView().getModel("studentModel").setProperty("/employment",aEmployment);
+                            break;
+                        }
+                    }
+                });
+                
+                aPersons.forEach(((oPerson,index)=>{
+                    if(oPerson.id==sId){
+                        aPersons.splice(index,1)
+                        this.getView().getModel("studentModel").setProperty("/persons", aPersons)
+                    }
+                }))
+
+
+            
+                this.getView().byId("detailPage").setVisible(false)
+                this.byId("sel").setMode("None");
+                this.byId("sel").setMode("MultiSelect");
                 this.getView().byId("stuid").setText("Id:");
                 this.getView().byId("stuper").setText("Total Percentage:");
                 this.getView().byId("stunam").setText("Name:");
@@ -258,26 +289,36 @@ sap.ui.define([
 
                 if (createof) {
 
-                    let indexof = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2]
-                    let aEducation = this.getView().getModel("studentModel").getProperty("/persons/" + indexof + "/education");
+                    let IdOf = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getObject().id;
+                    let aEducation = this.getView().getModel("studentModel").getProperty("/education");
                     let oPersonNewEducation = this.getView().getModel("labelModel").getProperty("/oPersonEdu");
                     aEducation.push({
+                        id:IdOf,
                         course: oPersonNewEducation.course,
                         institution: oPersonNewEducation.institution,
                         YearOfPass: oPersonNewEducation.YearOfPass,
                         Aggregation: oPersonNewEducation.Aggregation
                     });
-                    this.getView().getModel("studentModel").setProperty("/persons/" + indexof + "/education", aEducation);
+                    this.getView().getModel("studentModel").setProperty("/education", aEducation);
                     oPersonNewEducation.course = ""; oPersonNewEducation.institution = ""; oPersonNewEducation.YearOfPass = ""; oPersonNewEducation.Aggregation = "";
                     this.getView().getModel("labelModel").setProperty("/oPersonEdu", oPersonNewEducation);
                     this.percCalculate();
                     this.oDialog.close();
                 }
                 else {
-                    let indexof = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2];
-                    let indexofEdu = this.getView().byId("stuEdu").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[3];;
+                    let indexof = this.getView().byId("stuEdu").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2];
                     let oUpdateEdu = this.getView().getModel("labelModel").getProperty("/oPersonEduUpdate");
-                    this.getView().getModel("studentModel").setProperty("/persons/" + indexof + "/education/" + indexofEdu, oUpdateEdu);
+                    let oDuplicateEducation=this.getView().getModel("studentModel").getProperty("/aDuplicateEducation/"+indexof);
+                    let aEducation= this.getView().getModel("studentModel").getProperty("/education");
+                 
+                    for(let i=0;i<aEducation.length;i++){
+                        let findof=  this.objectCompare(oDuplicateEducation,aEducation[i]);
+                        if(findof==true){
+                            this.getView().getModel("studentModel").setProperty("/education/"+i,{oUpdateEdu});
+                            break;
+                        }
+                    }
+
                     this.percCalculate();
                     this.oDialog.close()
 
@@ -292,11 +333,9 @@ sap.ui.define([
             onUpdateEdu: function () {
                 this.getView().getModel("studentModel").setProperty("/create", false)
 
-                let indexof = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2]
-                let indexofedu = this.getView().byId("stuEdu").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[3]
-                let oPerEdu = this.getView().getModel("studentModel").getProperty("/persons/" + indexof + "/education/" + indexofedu);
+                let oSelectEdu = this.getView().byId("stuEdu").getSelectedItem().getBindingContext("studentModel").getObject()
 
-                this.getView().getModel("labelModel").setProperty("/oPersonEduUpdate", oPerEdu)
+                this.getView().getModel("labelModel").setProperty("/oPersonEduUpdate",{...oSelectEdu})
                 let formPath = "labelModel>/oLabelsEdu"
                 let InputPath = `labelModel>/oPersonEduUpdate/`;
                 let saveFunction = "Edu";
@@ -305,16 +344,20 @@ sap.ui.define([
 
             //For select and Delete of Record in Education after clicking on - button
             onDeleteEdu: function () {
-                let indexof = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2]
+                let aEducation=this.getView().getModel("studentModel").getProperty("/education");
                 let oSelectedEdu = this.getView().byId("stuEdu").getSelectedItems();
-                let count = 0;
+               
                 oSelectedEdu.forEach(oEdu => {
-                    let aEducation = this.getView().getModel("studentModel").getProperty("/persons/" + indexof + "/education");
-                    let indexOfEdu = oEdu.getBindingContext("studentModel").getPath().split("/")[3]
-                    aEducation.splice(indexOfEdu - count, 1);
-                    this.getView().getModel("studentModel").setProperty("/persons/" + indexof + "/education", aEducation);
-                    count++;
-                })
+                    let oSelectedEdu = oEdu.getBindingContext("studentModel").getObject()
+                    for(let i=0;i<aEducation.length;i++){
+                        let findof=  this.objectCompare(oSelectedEdu,aEducation[i]);
+                        if(findof==true){
+                            aEducation.splice(i,1)
+                            this.getView().getModel("studentModel").setProperty("/education",aEducation);
+                            break;
+                        }
+                    }
+                });
                 this.percCalculate();
             },
 
@@ -322,7 +365,6 @@ sap.ui.define([
             //For Opening Dialog after Clicking + button for Employment 
             onOpenEmp: function () {
                 this.getView().getModel("studentModel").setProperty("/create", true)
-
                 let formPath = "labelModel>/oLabelsEmp"
                 let InputPath = `labelModel>/oPersonEmp/`;
                 let saveFunction = "Emp";
@@ -334,19 +376,18 @@ sap.ui.define([
                 let createof = this.getView().getModel("studentModel").getProperty("/create");
 
                 if (createof) {
-
-
                     let oPersonNewEmployment = this.getView().getModel("labelModel").getProperty("/oPersonEmp");
-                    let indexof = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2]
-                    let aEmployement = this.getView().getModel("studentModel").getProperty("/persons/" + indexof + "/employment");
+                    let idOf = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getObject().id;
+                    let aEmployement = this.getView().getModel("studentModel").getProperty("/employment");
                     aEmployement.push({
+                        id:idOf,
                         Company: oPersonNewEmployment.Company,
                         Role: oPersonNewEmployment.Role,
                         YearOfJoin: oPersonNewEmployment.YearOfJoin,
                         YearOfEnd: oPersonNewEmployment.YearOfEnd,
                         PhoneNumber: oPersonNewEmployment.PhoneNumber
                     })
-                    this.getView().getModel("studentModel").setProperty("/persons/" + indexof + "/employment", aEmployement);
+                    this.getView().getModel("studentModel").setProperty("/employment", aEmployement);
                     oPersonNewEmployment.Company = ""; oPersonNewEmployment.Role = "", oPersonNewEmployment.YearOfJoin = ""; oPersonNewEmployment.YearOfEnd = ""; oPersonNewEmployment.PhoneNumber = "";
                     this.getView().getModel("labelModel").getProperty("/oPersonEmp", oPersonNewEmployment)
                     this.percCalculate();
@@ -354,23 +395,28 @@ sap.ui.define([
                 }
 
                 else {
-                    let indexof = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2];
-                    let indexofemp = this.getView().byId("stuEmp").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[3];
-                    let oUpdateEmp = this.getView().getModel("labelModel").getProperty("/oPersonEmpUpdate")
-                    this.getView().getModel("studentModel").setProperty("/persons/" + indexof + "/employment/" + indexofemp, oUpdateEmp);
+                    let indexof = this.getView().byId("stuEmp").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2];
+                    let oUpdateEmp = this.getView().getModel("labelModel").getProperty("/oPersonEmpUpdate");
+                    let oDuplicateEmployment=this.getView().getModel("studentModel").getProperty("/aDuplicateEmployment/"+indexof);
+                    let aEmployment= this.getView().getModel("studentModel").getProperty("/employment");
+                 
+                    for(let i=0;i<aEmployment.length;i++){
+                        let findof=  this.objectCompare(oDuplicateEmployment,aEmployment[i]);
+                        if(findof==true){
+                            this.getView().getModel("studentModel").setProperty("/education/"+i,oUpdateEmp);
+                            break;
+                        }
+                    }
                     this.percCalculate();
-
                 }
                 this.oDialog.close();
             },
             //For Opening the Dialog aftering clicking on on Update button Employemnt
             onUpdateEmp: function () {
                 this.getView().getModel("studentModel").setProperty("/create", false)
-
-                let indexof = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2]
-                let indexofemp = this.getView().byId("stuEmp").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[3]
-                let oPerEmp = this.getView().getModel("studentModel").getProperty("/persons/" + indexof + "/employment/" + indexofemp);
-                this.getView().getModel("labelModel").setProperty("/oPersonEmpUpdate", oPerEmp);
+                
+                let oSelectEdu = this.getView().byId("stuEmp").getSelectedItem().getBindingContext("studentModel").getObject();
+                this.getView().getModel("labelModel").setProperty("/oPersonEmpUpdate", {...oSelectEdu});
                 let formPath = "labelModel>/oLabelsEmp"
                 let InputPath = `labelModel>/oPersonEmpUpdate/`;
                 let saveFunction = "Emp";
@@ -380,16 +426,20 @@ sap.ui.define([
 
             //For select and Delete of Record in Employment after clicking on - button
             onDeleteEmp: function () {
-                let indexof = this.getView().byId("sel").getSelectedItem().getBindingContext("studentModel").getPath().split("/")[2]
+                let aEmployment=this.getView().getModel("studentModel").getProperty("/employment");
                 let oSelectedEmp = this.getView().byId("stuEmp").getSelectedItems();
-                let count = 0;
+               
                 oSelectedEmp.forEach(oEmp => {
-                    let aEmployment = this.getView().getModel("studentModel").getProperty("/persons/" + indexof + "/employment");
-                    let indexOfEdu = oEmp.getBindingContext("studentModel").getPath().split("/")[3];
-                    aEmployment.splice(indexOfEdu - count, 1);
-                    this.getView().getModel("studentModel").setProperty("/persons/" + indexof + "/employment", aEmployment);
-                    count++;
-                })
+                    let oSelectedEmpof = oEmp.getBindingContext("studentModel").getObject()
+                    for(let i=0;i<aEmployment.length;i++){
+                        let findof=  this.objectCompare(oSelectedEmpof,aEmployment[i]);
+                        if(findof==true){
+                            aEmployment.splice(i,1)
+                            this.getView().getModel("studentModel").setProperty("/employment",aEmployment);
+                            break;
+                        }
+                    }
+                });
                 this.percCalculate();
             },
             //For Closing of Dialog 
@@ -402,7 +452,8 @@ sap.ui.define([
                 this.getView().getModel("studentModel").setProperty("/aDuplicateEducation",[]);
                 this.getView().getModel("studentModel").setProperty("/aDuplicateEmployment",[]);
                 this.getView().getModel("studentModel").setProperty("/oStu",{})
-
+                
+                
                 let aPersons = this.getView().getModel("studentModel").getProperty("/persons")
                 let aEducation = this.getView().getModel("studentModel").getProperty("/education")
                 let aEmployment = this.getView().getModel("studentModel").getProperty("/employment")

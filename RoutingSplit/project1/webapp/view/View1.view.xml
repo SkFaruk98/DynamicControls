@@ -1,0 +1,152 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    >
+    <Page id="page" title="{i18n>title}">
+       <SplitApp id="splitapp">
+    <masterPages >
+       <Page showFooter="true"  class="sapuipadding">
+
+         <headerContent >
+           <SearchField liveChange="onSearch"></SearchField>
+         </headerContent>
+         <List id="sel" items="{studentModel>/persons}" selectionChange="onClickItem" mode="SingleSelectLeft" >
+          <StandardListItem title="{studentModel>name}" type="Active"></StandardListItem>
+         </List>
+
+     </Page>
+    </masterPages>
+
+  <!-- <detailPages >
+
+  <Page >
+ 
+  <Text text="wlecome to the page"></Text>
+ 
+  </Page>
+
+
+  <Page title="Person Data"  id="detailPage">
+
+ 
+ <dependents>
+   <Toolbar height="70px">
+    <VBox  >
+
+     <HBox >
+      <Text text="Id: {studentModel>/oStu/id}" width="820px" id="stuid"></Text>
+      <Text text="" id="stuper" ></Text>
+     </HBox>
+
+     <Text ></Text>
+
+     <HBox  >
+        <Text  text="Name: {studentModel>/oStu/name}" width="820px" id="stunam"></Text>
+        <Text  text="" id="stuyoe" ></Text>
+      </HBox>
+
+    </VBox> 
+   </Toolbar>
+
+  <IconTabBar >
+    <items >
+     <IconTabFilter text="Education" >
+
+       <Bar >
+        <contentRight>
+          <HBox>
+              <Button  type="Transparent" icon="sap-icon://create" press="onOpenEdu"></Button>
+              <Button  type="Transparent" icon="sap-icon://delete" press="onDeleteEdu" enabled="false" id="lessBut1"></Button>
+              <Button  type="Transparent" icon="sap-icon://edit" press="onUpdateEdu" enabled="false" id="editBut1"></Button>
+          </HBox>
+         </contentRight>
+       </Bar>
+     
+
+
+     <Table items="{studentModel>/aDuplicateEducation}" id="stuEdu" mode="MultiSelect" selectionChange="onSelectOfEdu" >
+       <columns>
+        <Column ><Text text="Course"></Text></Column>
+        <Column ><Text text="Institution"></Text></Column>
+        <Column ><Text text="Year of pass"></Text></Column>
+        <Column ><Text text="Aggregation"></Text></Column>
+       </columns>
+
+     <ColumnListItem >
+      <cells>
+       <Text text="{studentModel>course}"></Text>
+       <Text text="{studentModel>institution}"></Text>
+       <Text text="{studentModel>YearOfPass}"></Text>
+       <Text text="{studentModel>Aggregation}"></Text>
+      </cells>
+     </ColumnListItem>
+
+     </Table>
+    </IconTabFilter>
+
+    <IconTabFilter text="Employment">
+     
+     <Bar>
+       <contentRight>
+         <HBox>
+          <Button  type="Transparent" icon="sap-icon://create" press="onOpenEmp"></Button>
+          <Button  type="Transparent" icon="sap-icon://delete" press="onDeleteEmp" enabled="false" id="lessBut2"></Button>
+          <Button  type="Transparent" icon="sap-icon://edit" press="onUpdateEmp" enabled="false" id="editBut2"></Button>
+         </HBox>
+       </contentRight>
+     </Bar>
+
+ 
+    <Table items="{studentModel>/aDuplicateEmployment}" id="stuEmp" mode="MultiSelect" selectionChange="onSelectOfEmp">
+      <columns>
+        <Column ><Text text="Company"></Text></Column>
+        <Column ><Text text="Role"></Text></Column>
+        <Column ><Text text="Year of Join"></Text></Column>
+        <Column ><Text text="Year of End"></Text></Column>
+        <Column ><Text text="PhoneNumber"></Text></Column>
+      </columns>
+
+      <ColumnListItem >
+       <cells>
+        <Text text="{studentModel>Company}"></Text>
+        <Text text="{studentModel>Role}"></Text>
+        <Text text="{studentModel>YearOfJoin}"></Text>
+        <Text text="{studentModel>YearOfEnd}"></Text>
+        <Text text="{studentModel>PhoneNumber}"></Text>
+      </cells>
+     </ColumnListItem>
+
+    </Table>
+   </IconTabFilter>
+
+    </items>
+    </IconTabBar>   
+
+
+</dependents>
+   </Page>
+
+   </detailPages> -->
+
+  </SplitApp>
+
+
+<!--Buttons-->
+<footer >
+  <Toolbar height="50px">
+    <Bar>
+    <contentLeft >
+     <HBox alignContent="End" >
+       <Button text="Create"   type="Emphasized" icon="sap-icon://create"  press="onCreate" ></Button>
+       <Button ></Button>
+       <Button text="Delete"   type="Reject" icon="sap-icon://delete" press="onDelete" enabled="{= ${labelModel>/Buttonof}===true? true:false }"></Button>
+       <Button ></Button>
+       <Button text="Update"  type="Accept" icon="sap-icon://edit" press="onUpdate" enabled="{= ${labelModel>/Buttonof}===true? true:false }"></Button>
+     </HBox>
+    </contentLeft>
+    </Bar>
+  </Toolbar>
+</footer>
+    </Page>
+</mvc:View>

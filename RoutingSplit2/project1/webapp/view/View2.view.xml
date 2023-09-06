@@ -1,0 +1,116 @@
+<mvc:View
+controllerName="project1.controller.View2"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m"
+xmlns:l="sap.ui.layout"
+id="idOfView2"
+>
+
+
+
+  <Page   id="page">
+
+    <!--Detali page Header-->
+ 
+   <Toolbar height="150px">
+    <VBox  >
+
+         <ObjectHeader title= "{studentModel>/oStu/name}" class="nameObj">
+      <ObjectAttribute text="{i18n>id}{studentModel>/oStu/id}" id="stuid" />
+      <ObjectAttribute text="Total Marks: {studentModel>/oStu/totalmarks}" id="stuper"  />
+      <ObjectAttribute  text="Year of Exp: {studentModel>/oStu/experience}" id="stuyoe" />
+
+   </ObjectHeader > 
+   
+
+    </VBox> 
+   </Toolbar>
+
+  <IconTabBar >
+    <items >
+     <IconTabFilter text="Education" icon="sap-icon://course-book">
+
+       <Bar >
+        <contentRight>
+          <HBox>
+              <Button  type="Transparent" icon="sap-icon://create" press="onOpenEdu"></Button>
+              <Button  type="Transparent" icon="sap-icon://delete" press="onDeleteEdu" enabled="false" id="lessBut1"></Button>
+              <Button  type="Transparent" icon="sap-icon://edit" press="onUpdateEdu" enabled="false" id="editBut1"></Button>
+          </HBox>
+         </contentRight>
+       </Bar>
+     
+     <!--Education Table-->
+  
+     <Table items="{studentModel>/aDuplicateEducation}" id="stuEdu" mode="MultiSelect" selectionChange="onSelectOfEdu" itemPress="onEduPress">
+       <columns>
+        <Column ><Text text="Course"></Text></Column>
+        <Column ><Text text="Institution"></Text></Column>
+        <Column ><Text text="Year of pass"></Text></Column>
+        <Column ><Text text="Aggregation"></Text></Column>
+       </columns>
+
+     <ColumnListItem >
+      <cells>
+       <Text text="{studentModel>course}"></Text>
+       <Text text="{studentModel>institution}"></Text>
+       <Text text="{studentModel>YearOfPass}"></Text>
+       <Text text="{studentModel>Aggregation}"></Text>
+      </cells>
+     </ColumnListItem>
+
+     </Table>
+    </IconTabFilter>
+
+    <IconTabFilter text="Employment" icon="sap-icon://employee">
+     
+     <Bar>
+       <contentRight>
+         <HBox>
+          <Button  type="Transparent" icon="sap-icon://create" press="onOpenEmp"></Button>
+          <Button  type="Transparent" icon="sap-icon://delete" press="onDeleteEmp" enabled="false" id="lessBut2"></Button>
+          <Button  type="Transparent" icon="sap-icon://edit" press="onUpdateEmp" enabled="false" id="editBut2"></Button>
+         </HBox>
+       </contentRight>
+     </Bar>
+
+    <!--Employment Table-->
+    <Table items="{studentModel>/aDuplicateEmployment}" id="stuEmp" mode="MultiSelect" selectionChange="onSelectOfEmp">
+      <columns>
+        <Column ><Text text="Company"></Text></Column>
+        <Column ><Text text="Role"></Text></Column>
+        <Column ><Text text="Year of Join"></Text></Column>
+        <Column ><Text text="Year of End"></Text></Column>
+        <Column ><Text text="PhoneNumber"></Text></Column>
+      </columns>
+
+      <ColumnListItem >
+       <cells>
+        <Text text="{studentModel>Company}"></Text>
+        <Text text="{studentModel>Role}"></Text>
+        <Text text="{studentModel>YearOfJoin}"></Text>
+        <Text text="{studentModel>YearOfEnd}"></Text>
+        <Text text="{studentModel>PhoneNumber}"></Text>
+      </cells>
+     </ColumnListItem>
+
+    </Table>
+   </IconTabFilter>
+
+    </items>
+    </IconTabBar>   
+
+
+<footer>
+<Toolbar >
+<Bar >
+<contentRight>
+<Button text="back" icon="sap-icon://nav-back" type="Emphasized" press="onNavBack"></Button>
+</contentRight>
+</Bar>
+</Toolbar>
+</footer>
+   </Page>
+   
+  
+</mvc:View>
